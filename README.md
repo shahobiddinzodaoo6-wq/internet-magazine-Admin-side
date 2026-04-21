@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# 🚀 Admin Internet Magazine Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+</p>
 
-Currently, two official plugins are available:
+## 📝 Description
+**Admin Internet Magazine** is a powerful and modern E-commerce Administration Dashboard. It allows store managers to efficiently manage their product catalog, monitor users, and handle complex store operations through a sleek and responsive interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*   **📦 Product Management**: Full CRUD operations with advanced filtering, search, and pagination.
+*   **🖼️ Media Hub**: Sophisticated multi-image upload system with real-time previews.
+*   **👥 User Control**: Manage user accounts, roles (Admin, Manager, User), and profiles.
+*   **🔍 Advanced Filtering**: Filter products by Category, Brand, Color, and Price range.
+*   **🛡️ Secure API**: Integrated with Bearer Token authentication and automated request handling.
+*   **🎨 Premium UI**: Beautifully designed using Tailwind CSS and Shadcn UI.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technology Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Technology | Purpose |
+| :--- | :--- |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="20" /> **React** | Core Library |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" width="20" /> **Redux Toolkit** | State Management |
+| <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" width="20" /> **Tailwind CSS** | Styling & Layout |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="20" /> **TypeScript** | Type Safety |
+| <img src="https://www.vectorlogo.zone/logos/axios/axios-icon.svg" width="20" /> **Axios** | API Requests |
+| <img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/package.svg" width="20" /> **Lucide React** | Iconography |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/shahobiddinzodaoo6-wq/internet-magazine-Admin-side.git
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Configure Environment**:
+   Create a `.env` file in the root and add:
+   ```env
+   VITE_API=/api
+   ```
+
+4. **Run the project**:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+
+
+
+Author: Shahobiddinzoda Firuzbakht
