@@ -2,40 +2,35 @@ import { useState } from "react"
 import { Eye, EyeOff } from "lucide-react"
 import logo from '../assets/Group 1116606595 (2).png'
 import { useNavigate } from "react-router"
-import { axiosRequest } from "../store/counter"
+
 import { jwtDecode } from "jwt-decode"
+import { axiosRequest } from "../reducers/token"
+import { loginUser } from "../api/authApi/authApi"
+import { useDispatch } from "react-redux"
 
 const Login = () => {
   const [show, setShow] = useState(false)
 
-
-
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleSubmit = async (event: any) => {
-    event.preventDefault()
-    const obj =
-    {
-      userName: (event.target["userName"].value),
-      password: (event.target["password"].value)
-    }
-    try {
-      const { data } = await axiosRequest.post(`/Account/login`, obj)
-      const decoded = data.data && jwtDecode(data.data);
-      const role = data.data && decoded["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-      const haveAccess = role == "Admin" || role == "SuperAdmin"
-      if (data.status == 200 && haveAccess) {
-        navigate("/Dashboard")
-      }
-      else {
-        console.log("Error");
-      }
-    } catch (error) {
-      console.error(error);
+  async function submitLogin(e) {
+    e.preventDefault()
+    const form = e.currentTarget
+    const userName = (form.elements.namedItem("userName") as HTMLInputElement).value
+    const password = (form.elements.namedItem("password") as HTMLInputElement).value
 
+    const res = await dispatch(
+      loginUser({
+        userName,
+        password,
+      })
+    )
+
+    if ((res as any).payload?.statusCode === 200) {
+      navigate("/Dashboard")
     }
   }
-
 
 
   return (
@@ -60,7 +55,7 @@ const Login = () => {
             Log in
           </h2>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={submitLogin}>
 
             <input
               type="text"
