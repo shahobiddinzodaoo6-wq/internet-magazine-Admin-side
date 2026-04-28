@@ -10,6 +10,7 @@ export const getUser = createAsyncThunk("user/getUser", async () => {
     }
 })
 
+
 export const addUser = createAsyncThunk("user/addUser", async (formData: FormData) => {
     try {
         const payload = {

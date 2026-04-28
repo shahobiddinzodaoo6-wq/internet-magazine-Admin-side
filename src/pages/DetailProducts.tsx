@@ -59,42 +59,69 @@ const DetailProducts = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      const payload: any = {
-        productName: data.productName,
-        code: data.code || "",
-        description: data.description || "",
-        price: Number(data.price) || 0,
-        discount: Number(data.discount) || 0,
-        quantity: Number(data.count) || 0,
-        subCategoryId: 0,
-        hasTax: !!data.hasTax
-      }
-
-      if (data.categoryId) payload.categoryId = Number(data.categoryId);
-      if (data.brandId) payload.brandId = Number(data.brandId);
-      if (selectedColor) payload.colorId = Number(selectedColor);
-      if (productId) payload.id = Number(productId);
-
-      let resultAction: any;
-      if (productId) {
-        resultAction = await dispatch(updateProduct(payload));
-      } else {
-        resultAction = await dispatch(addProduct(payload));
-      }
-
-      // If successful and we have images to upload
-      const newProductId = productId ? Number(productId) : (resultAction.payload?.id || resultAction.payload?.data?.id || resultAction.payload?.data);
+      const isEdit = !!productId;
       
-      if (newProductId && selectedImages.length > 0) {
-        for (const imgObj of selectedImages) {
-          const imgData = new FormData();
-          imgData.append('ProductId', String(newProductId));
-          imgData.append('Image', imgObj.file);
-          await dispatch(addImageToProduct(imgData));
+      if (!isEdit) {
+        if (selectedImages.length === 0) {
+          alert("Please select at least one image for the product.");
+          return;
+        }
+        // For Adding Product: Use FormData as per Swagger (multipart/form-data)
+        const formData = new FormData();
+        formData.append('ProductName', data.productName);
+        formData.append('Code', data.code || "");
+        formData.append('Description', data.description || "");
+        formData.append('Price', String(data.price || 0));
+        formData.append('Quantity', String(data.count || 0));
+        formData.append('BrandId', String(data.brandId || 0));
+        formData.append('ColorId', String(selectedColor || 0));
+        formData.append('SubCategoryId', String(data.categoryId || 0));
+        formData.append('HasDiscount', String(Number(data.discount) > 0));
+        formData.append('DiscountPrice', String(data.discount || 0));
+        
+        // Add images to the initial product creation if any
+        if (selectedImages.length > 0) {
+          selectedImages.forEach((imgObj: any) => {
+            formData.append('Images', imgObj.file);
+          });
+        }
+
+        const resultAction = await dispatch(addProduct(formData));
+        
+        if (addProduct.fulfilled.match(resultAction)) {
+           navigate('/Products');
+        }
+      } else {
+        // For Updating Product: Use query parameters as per Swagger
+        const payload: any = {
+          Id: Number(productId),
+          ProductName: data.productName,
+          Code: data.code || "",
+          Description: data.description || "",
+          Price: Number(data.price) || 0,
+          Quantity: Number(data.count) || 0,
+          BrandId: Number(data.brandId) || 0,
+          ColorId: Number(selectedColor) || 0,
+          SubCategoryId: Number(data.categoryId) || 0,
+          HasDiscount: Number(data.discount) > 0,
+          DiscountPrice: Number(data.discount) || 0,
+        }
+
+        const resultAction = await dispatch(updateProduct(payload));
+        
+        if (updateProduct.fulfilled.match(resultAction)) {
+          // After updating product info, upload new images if any
+          if (selectedImages.length > 0) {
+            const imgData = new FormData();
+            imgData.append('ProductId', String(productId));
+            selectedImages.forEach((imgObj: any) => {
+              imgData.append('Files', imgObj.file);
+            });
+            await dispatch(addImageToProduct(imgData));
+          }
+          navigate('/Products');
         }
       }
-
-      navigate('/Products');
     } catch (error) {
       console.error("Submission failed:", error);
     }

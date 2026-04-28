@@ -24,9 +24,9 @@ export const getProductById = createAsyncThunk("product/getProductById", async (
 });
 
 // Add Product
-export const addProduct = createAsyncThunk("product/addProduct", async (productData: any) => {
+export const addProduct = createAsyncThunk("product/addProduct", async (formData: FormData) => {
     try {
-        const { data } = await axiosRequest.post("/Product/add-product", productData);
+        const { data } = await axiosRequest.post("/Product/add-product", formData);
         return data;
     } catch (error: any) {
         console.error(error);
@@ -38,7 +38,8 @@ export const addProduct = createAsyncThunk("product/addProduct", async (productD
 // Update Product
 export const updateProduct = createAsyncThunk("product/updateProduct", async (productData: any) => {
     try {
-        const { data } = await axiosRequest.put("/Product/update-product", productData);
+        // Update product uses query parameters according to swagger
+        const { data } = await axiosRequest.put("/Product/update-product", null, { params: productData });
         return data;
     } catch (error: any) {
         console.error(error);
