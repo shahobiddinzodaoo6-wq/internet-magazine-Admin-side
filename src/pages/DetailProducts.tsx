@@ -19,6 +19,9 @@ const DetailProducts = () => {
   const [hasDifferentOptions, setHasDifferentOptions] = useState(false)
   const [selectedColor, setSelectedColor] = useState<number | null>(null)
 
+
+
+  
   useEffect(() => {
     dispatch(getCategories())
     dispatch(getBrands())
@@ -453,4 +456,4 @@ const DetailProducts = () => {
   )
 }
 
-export default DetailProducts
+export default DetailProducts

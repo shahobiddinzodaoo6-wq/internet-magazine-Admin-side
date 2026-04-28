@@ -22,6 +22,7 @@ const Layout = () => {
                         className="bg-transparent outline-none ml-2 text-sm w-full placeholder-gray-400"
                     />
                 </div>
+                
 
                 <div className="flex items-center gap-6">
 
