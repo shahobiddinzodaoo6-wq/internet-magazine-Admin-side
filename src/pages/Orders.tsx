@@ -16,6 +16,8 @@ import {
 import { getUser, deleteUser, addUser, updateUser } from '../api/userApi/userApi'
 import { API_IMAGE } from '../utils/url'
 
+
+
 const Orders = () => {
   const dispatch = useDispatch<AppDispatch>()
   const { dataOrders } = useSelector((state: RootState) => state.user)
@@ -33,13 +35,16 @@ const Orders = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
 
-  
+
   // React-Hook-Form
   const { register, handleSubmit, reset } = useForm()
 
   useEffect(() => {
     dispatch(getUser())
   }, [dispatch])
+
+
+  
 
 
   // Handlers for Form Modal
@@ -240,6 +245,9 @@ const Orders = () => {
         </div>
       </div>
 
+
+
+
       {/* DELETE CONFIRMATION MODAL */}
       {deleteModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
@@ -418,3 +426,7 @@ const Orders = () => {
 }
 
 export default Orders
+
+
+
+

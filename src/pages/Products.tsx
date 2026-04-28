@@ -42,6 +42,10 @@ const Products = () => {
       dispatch(deleteProduct(id))
     }
   }
+  
+
+
+
 
   return (
     <div className='flex min-h-screen bg-[#f8f9fb]'>
@@ -243,3 +247,9 @@ const Products = () => {
 }
 
 export default Products
+
+
+
+
+
+
