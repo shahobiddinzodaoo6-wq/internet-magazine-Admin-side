@@ -9,6 +9,8 @@ import Products from './pages/Products'
 import Brands from './pages/Brands'
 import Layout from './pages/Layout'
 
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -31,6 +33,8 @@ const App = () => {
 
 
 export default App
+
+
 
 
 
