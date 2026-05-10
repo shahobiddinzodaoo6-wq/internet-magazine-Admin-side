@@ -18,6 +18,8 @@ export interface IProduct {
     colorName?: string;
 }
 
+
+
 export interface ProductState {
     products: IProduct[];
     currentProduct: IProduct | null;
@@ -28,6 +30,8 @@ export interface ProductState {
     totalPage: number;
 }
 
+
+
 const initialState: ProductState = {
     products: [],
     currentProduct: null,
@@ -37,6 +41,8 @@ const initialState: ProductState = {
     loading: false,
     totalPage: 0
 }
+
+
 
 export const productSlice = createSlice({
     name: 'product',
@@ -83,3 +89,5 @@ export const productSlice = createSlice({
 
 export const { setCurrentProduct } = productSlice.actions
 export default productSlice.reducer
+
+
