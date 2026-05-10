@@ -457,3 +457,5 @@ const DetailProducts = () => {
 }
 
 export default DetailProducts
+
+
