@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { saveToken } from "../../utils/url";
 import { loginUser } from "../../api/authApi/authApi";
 
+
 interface AuthState {
   value: number;
   statusRegistration: boolean;
@@ -9,12 +10,15 @@ interface AuthState {
   errorMessege: string;
 }
 
+
 const initialState: AuthState = {
   value: 0,
   statusRegistration: false,
   statusLogin: false,
   errorMessege: "",
 };
+
+
 
 export const authSlice = createSlice({
   name: "auth",
@@ -32,8 +36,6 @@ export const authSlice = createSlice({
 
 
 
+
+
 export default authSlice.reducer;
-
-
-
-
