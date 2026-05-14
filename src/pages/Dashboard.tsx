@@ -95,6 +95,8 @@ const Dashboard = () => {
               </div>
             </div>
 
+
+
             <div className="flex items-center gap-4 bg-[#fdf7e7] p-5 rounded-2xl">
               <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#fdecc8] text-[#f59e0b]">
                 <DollarSign size={22} />
@@ -117,6 +119,8 @@ const Dashboard = () => {
 
             <div></div>
           </div>
+
+
 
           {/* GRAPH + RIGHT */}
           <div className="grid grid-cols-3 gap-6 mb-6">
@@ -142,6 +146,8 @@ const Dashboard = () => {
               </div>
             </div>
 
+
+
             {/* RIGHT PANEL */}
             <div className="bg-white p-6 rounded-2xl border border-gray-200">
               <div className="flex justify-between items-center mb-5">
@@ -151,12 +157,15 @@ const Dashboard = () => {
                 </span>
               </div>
 
+
+
               {[1, 2, 3, 4].map((_, i) => (
                 <div key={i} className="flex items-center gap-3 mb-4">
                   <img
                     src="https://picsum.photos/50"
                     className="w-12 h-12 rounded-md"
                   />
+
 
                   <div className="flex-1">
                     <p className="text-sm font-medium">
@@ -179,6 +188,8 @@ const Dashboard = () => {
               ))}
             </div>
           </div>
+
+
 
           {/* TABLES */}
           <div className="grid grid-cols-2 gap-6">
