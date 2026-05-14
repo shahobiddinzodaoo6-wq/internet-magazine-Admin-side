@@ -3,6 +3,8 @@ import { Bell, Folder, Home, List, Search, Tag } from "lucide-react"
 import { Outlet } from 'react-router'
 import logo from '../assets/Group 1116606595 (3).png'
 
+
+
 const Layout = () => {
     return (
         <>
@@ -14,6 +16,8 @@ const Layout = () => {
                     />
                 </div>
 
+
+
                 <div className="flex items-center bg-[#334155] px-4 py-2 rounded-lg w-[400px]">
                     <Search size={18} className="text-gray-400" />
                     <input
@@ -23,6 +27,7 @@ const Layout = () => {
                     />
                 </div>
                 
+
 
                 <div className="flex items-center gap-6">
 
@@ -50,6 +55,10 @@ const Layout = () => {
     )
 }
 
+
+
 export default Layout
+
+
 
 
