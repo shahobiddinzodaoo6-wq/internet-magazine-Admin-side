@@ -2,6 +2,9 @@ import { Folder, Home, List, Tag } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router'
 
+
+
+
 const Categories = () => {
   return (
     <>
@@ -16,9 +19,6 @@ const Categories = () => {
             </div>
           </Link>
 
-
-
-
           <div className="mt-6 flex flex-col gap-4">
 
             <Link to={"/Orders"}>
@@ -30,6 +30,7 @@ const Categories = () => {
                 </div>
               </div>
             </Link>
+
 
 
             <Link to={"/Products"}>
@@ -55,5 +56,8 @@ const Categories = () => {
 
 
 export default Categories
+
+
+
 
 
