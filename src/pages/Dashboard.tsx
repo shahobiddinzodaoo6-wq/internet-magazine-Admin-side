@@ -196,6 +196,7 @@ const Dashboard = () => {
                 <span>Status</span>
               </div>
 
+
               <div className="flex flex-col gap-4 text-sm">
                 {[
                   ["Jaganrath S.", "24.05.2023", "$124.97", "Paid"],
@@ -223,6 +224,8 @@ const Dashboard = () => {
               </div>
             </div>
 
+
+
             {/* RIGHT */}
             <div className="bg-white p-6 rounded-2xl border border-gray-200">
               <h2 className="text-lg font-semibold mb-5">
@@ -234,6 +237,8 @@ const Dashboard = () => {
                 <span>Price</span>
                 <span>Units</span>
               </div>
+
+
 
               
 
@@ -266,4 +271,5 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
 
