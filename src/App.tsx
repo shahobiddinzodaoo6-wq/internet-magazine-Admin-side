@@ -11,6 +11,7 @@ import Layout from './pages/Layout'
 
 
 
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -28,8 +29,6 @@ const App = () => {
     </BrowserRouter>
   )
 }
-
-
 
 
 export default App
